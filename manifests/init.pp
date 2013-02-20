@@ -41,10 +41,15 @@ class hostapd (
   $driver = unset,
   $hw_mode = unset,
   $channel = unset,
+  $wmm_enabled = unset,
+  $ieee80211n = unset,
+  $ht_capab = unset,
+  $auth_algs = unset,
   $wpa = unset,
   $wpa_passphrase = unset,
   $wpa_key_mgmt = unset,
   $wpa_pairwise = unset,
+  $rsn_pairwise = unset,
 ) {
   class{'hostapd::install':} ~>
   class{'hostapd::config':} ~>

@@ -37,6 +37,18 @@ hw_mode=<%= @hw_mode %>
 <% if @channel -%>
 channel=<%= @channel %>
 <% end -%>
+<% if @auth_algs -%>
+auth_algs=<%= @auth_algs %>
+<% end -%>
+<% if @wmm_enabled -%>
+wmm_enabled=<%= @wmm_enabled %>
+<% end -%>
+<% if @ieee80211n -%>
+ieee80211n=<%= @ieee80211n %>
+<% end -%>
+<% if @ht_capab -%>
+ht_capab=<%= @ht_capab %>
+<% end -%>
 <% if @wpa -%>
 wpa=<%= @wpa %>
 <% end -%>
@@ -48,4 +60,7 @@ wpa_key_mgmt=<%= @wpa_key_mgmt %>
 <% end -%>
 <% if @wpa_pairwise -%>
 wpa_pairwise=<%= @wpa_pairwise %>
+<% end -%>
+<% if @rsn_pairwise -%>
+rsn_pairwise=<%= @rsn_pairwise %>
 <% end -%>
