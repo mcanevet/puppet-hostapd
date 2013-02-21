@@ -38,6 +38,7 @@
 class hostapd (
   $ssid,
   $interface = unset,
+  $bridge = unset,
   $driver = unset,
   $hw_mode = unset,
   $channel = unset,
