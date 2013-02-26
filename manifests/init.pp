@@ -37,23 +37,23 @@
 #
 class hostapd (
   $ssid,
-  $interface = unset,
-  $bridge = unset,
-  $driver = unset,
-  $hw_mode = unset,
-  $channel = unset,
-  $wmm_enabled = unset,
-  $ieee80211n = unset,
-  $ht_capab = unset,
-  $auth_algs = unset,
-  $wpa = unset,
-  $wpa_passphrase = unset,
-  $wpa_key_mgmt = unset,
-  $wpa_pairwise = unset,
-  $rsn_pairwise = unset,
+  $interface = undef,
+  $bridge = undef,
+  $driver = undef,
+  $hw_mode = undef,
+  $channel = undef,
+  $wmm_enabled = undef,
+  $ieee80211n = undef,
+  $ht_capab = undef,
+  $auth_algs = undef,
+  $wpa = undef,
+  $wpa_passphrase = undef,
+  $wpa_key_mgmt = undef,
+  $wpa_pairwise = undef,
+  $rsn_pairwise = undef,
 ) {
-  class{'hostapd::install':} ~>
+  class{'hostapd::install':} ->
   class{'hostapd::config':} ~>
-  class{'hostapd::service':} ~>
+  class{'hostapd::service':} ->
   Class['hostapd']
 }
