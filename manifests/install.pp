@@ -1,5 +1,5 @@
 class hostapd::install {
   package{'hostapd':
-    ensure => present,
+    ensure => $hostapd::version,
   }
 }

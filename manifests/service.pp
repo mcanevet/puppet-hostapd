@@ -1,8 +1,10 @@
 class hostapd::service {
 
+  $ensure = $hostapd::start ? {true => running, default => stopped}
+
   service{'hostapd':
-    ensure => running,
-    enable => true,
+    ensure => $ensure,
+    enable => $hostapd::enable,
   }
 
 }
