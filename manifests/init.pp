@@ -14,7 +14,7 @@ class hostapd (
   $wpa_key_mgmt   = undef,
   $wpa_pairwise   = undef,
   $rsn_pairwise   = undef,
-  $version        = 'present',
+  $version        = present,
   $enable         = true,
   $start          = true,
   $bssids         = {},

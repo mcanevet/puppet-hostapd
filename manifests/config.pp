@@ -13,18 +13,12 @@ class hostapd::config {
     content => template('hostapd/hostapd.conf.erb'),
   }
 
-  $newmac = macaddress_for_multiple_bssid($::hostapd::interface)
-
-  augeas { 'interfaces':
-    incl    => '/etc/network/interfaces',
-    lens    => 'Interfaces.lns',
-    changes => [
-      "set iface[. = '${hostapd::interface}'][family = 'inet']/hostapd /etc/hostapd/hostapd.conf",
-      "set iface[. = '${hostapd::interface}'][family = 'inet']/pre-up 'ifconfig ${hostapd::interface} hw ether ${newmac}'",
-    ],
-  }
-
   validate_hash($::hostapd::bssids)
   create_resources(hostapd::bssid, $::hostapd::bssids)
 
+  shellvar { 'DAEMON_CONF':
+    ensure => present,
+    target => '/etc/default/hostapd',
+    value  => '/etc/hostapd/hostapd.conf',
+  }
 }
