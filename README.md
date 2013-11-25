@@ -27,6 +27,15 @@ class { '::hostapd':
 }
 ```
 
+Declare an additional bssid:
+
+```puppet
+hostapd::bssid { 'wlan0_0':
+  ssid      => 'bar',
+  bridge    => 'br0',
+}
+```
+
 Reference
 ---------
 
@@ -100,7 +109,15 @@ You should not declare this class explicitely, it should be done by the `hostapd
 
 ###Resource: hostapd::bssid
 
+####`namevar`
+The name of the bssid to declare.
+
+####`bss`
+The name of the bssid, defaults to namevar.
+
 ####`ssid`
+
+####`bssid`
 
 ####`interface`
 
