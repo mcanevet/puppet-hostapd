@@ -1,5 +1,6 @@
 fixtures:
   repositories:
+    augeasproviders: git://github.com/hercules-team/augeasproviders
     stdlib: git://github.com/puppetlabs/puppetlabs-stdlib.git
     concat_native: git://github.com/theforeman/puppet-concat.git
   symlinks:
