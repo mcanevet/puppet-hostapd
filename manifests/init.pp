@@ -30,7 +30,7 @@ class hostapd (
   Class['hostapd::install'] ->
   Hostapd::Bssid <| |> ~>
   Class['hostapd::service']
-  
+
   Class['hostapd::service'] ->
   Class['hostapd']
 }
