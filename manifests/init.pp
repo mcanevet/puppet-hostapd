@@ -19,18 +19,8 @@ class hostapd (
   $start          = true,
   $bssids         = {},
 ) {
-  class{'hostapd::install':}
-  class{'hostapd::config':}
-  class{'hostapd::service':}
-
-  Class['hostapd::install'] ->
-  Class['hostapd::config'] ~>
-  Class['hostapd::service']
-
-  Class['hostapd::install'] ->
-  Hostapd::Bssid <| |> ~>
-  Class['hostapd::service']
-
-  Class['hostapd::service'] ->
+  class{'hostapd::install':} ->
+  class{'hostapd::config':} ~>
+  class{'hostapd::service':} ->
   Class['hostapd']
 }

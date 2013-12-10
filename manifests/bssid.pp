@@ -17,6 +17,10 @@ define hostapd::bssid(
   $wpa_pairwise   = undef,
   $rsn_pairwise   = undef,
 ) {
+  Class['hostapd::install'] ->
+  Hostapd::Bssid[$title] ~>
+  Class['hostapd::service']
+
   concat_fragment { "hostapd.conf+02_${bss}":
     content => template('hostapd/bssid.erb', 'hostapd/hostapd.conf.erb'),
   }
